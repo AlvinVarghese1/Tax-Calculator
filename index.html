@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Tax Calculator</h2>
+        <form id="taxForm">
+            <div class="form-group">
+                <label for="grossIncome">Gross Annual Income <i class="fa-regular fa-question-circle" data-toggle="tooltip" title="Gross annual income is your total salary in a year before any deductions"></i></label>
+
+                <div class="input-container">
+                <input type="text" id="grossIncome" class="input-field" min="0"  required>
+                <div id="tooltipIcon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                </div>
+                <div class="tooltipText" id="tooltip">Please enter only numbers</div>
+
+                <div class="error-icon" id="grossIncomeError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="extraIncome">Extra Income <i class="fa-regular fa-question-circle" data-toggle="tooltip" title="Any additional income beyond the gross annual income."></i></label>
+                <div class="input-container">
+                <input type="text" id="extraIncome" class="input-field" min="0"  required>
+                <div id="tooltipIcon1"><i class="fa-solid fa-circle-exclamation"></i></div>
+                </div>
+                <div class="tooltipText" id="tooltip1">Please enter only numbers</div>
+                <div class="error-icon" id="extraIncomeError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age Group <i class="fa-regular fa-question-circle" data-toggle="tooltip" title="Select the appropriate age group for tax calculation."></i></label>
+                <select id="age" class="input-field" required>
+                    <option value="<40">Below 40 years old</option>
+                    <option value=">=40 & <60">Between 40 and 60 </option>
+                    <option value=">=60">Above 60 years old</option>
+                </select>
+                <div class="error-icon" id="ageError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="deductions">Total Applicable Deductions <i class="fa-regular fa-question-circle" data-toggle="tooltip" title="Total deductions to be applied before tax calculation."></i></label>
+                <div class="input-container">
+                <input type="text" id="deductions" class="input-field" min="0" required>
+                <div id="tooltipIcon2"><i class="fa-solid fa-circle-exclamation"></i></div>
+            </div>
+            <div class="tooltipText" id="tooltip2">Please enter only numbers</div>
+                <div class="error-icon" id="deductionsError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary" >Submit</button>
+        </form>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Final Tax Calculation</h2>
+            <p id="taxResult"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>
